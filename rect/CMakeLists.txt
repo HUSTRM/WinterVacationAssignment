@@ -1,0 +1,10 @@
+cmake_minimum_required(VERSION 3.13)
+project(rect)
+
+set(CMAKE_CXX_STANDARD 14)
+find_package( OpenCV REQUIRED)
+find_package(Boost 1.55.0 REQUIRED COMPONENTS system filesystem)
+include_directories(${OpenCV_INCLUDE_DIRS} ${Boost_INCLUDE_DIRS})
+add_executable(rect main.cpp SerialCom.cpp algorithmOfCRC.cpp)
+link_directories(${OpenCV_LIBRARY_DIRS})
+target_link_libraries(rect ${OpenCV_LIBS} ${Boost_LIBRARIES})
